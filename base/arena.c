@@ -9,7 +9,7 @@ void *arena_alloc(Arena *a, size_t size) {
   size_t start = align_forward(a->len, ARENA_DEFAULT_ALIGN);
   size_t end = start + size;
 
-  assert(end <= a->cap);
+  assert(end <= a->cap); // should probably double capacity
 
   void *ptr = a->base + start;
   a->len = end;
